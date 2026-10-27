@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        LaunchBall();
+        LaunchBall(0);
     }
 
     void FixedUpdate()
@@ -45,9 +45,17 @@ public class BallController : MonoBehaviour
         }
     }
 
-    void LaunchBall()
+    void LaunchBall(int dir)
     {
-        _lastHorizontalDirection = Random.value > 0.5f ? 1f : -1f;
+        this.transform.position = Vector2.zero;
+        if (dir == 0)
+        {
+            _lastHorizontalDirection = Random.value > 0.5f ? 1f : -1f;
+        }
+        else
+        {
+            _lastHorizontalDirection = dir;
+        }
 
         float yVelocity = Random.Range(-0.7f, 0.7f);
 
@@ -59,8 +67,16 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Ball Hit");
-        gameManager.p1++;
+        if (collision.gameObject.CompareTag("Wall_R"))
+        {
+            gameManager.p1++;
+            LaunchBall(-1);
+        }
+        if (collision.gameObject.CompareTag("Wall_L"))
+        {
+            gameManager.p2++;
+            LaunchBall(1);
+        }
         gameManager.UpdatePointsText();
     }
 }

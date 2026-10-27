@@ -10,9 +10,10 @@ public class Game_Manager : MonoBehaviour
     public TextMeshProUGUI marcadorText;
     public void UpdatePointsText()
     {
+        string lastPoints = pointsCount; //ESTO NO LO COPIES
         pointsCount = p1 + "|" + p2;
         marcadorText.text = pointsCount;
-        AnimatePointsText();
+        if(lastPoints!=pointsCount)AnimatePointsText(); //ESTO TAMPOCO LOL
     }
 
     private void AnimatePointsText()
