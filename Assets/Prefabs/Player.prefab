@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
-  topHeight: 2.5
-  botHeight: -2.5
+  topHeight: 2.3
+  botHeight: -4
   useArrowKeys: 0
 --- !u!70 &84260987477614074
 CapsuleCollider2D:

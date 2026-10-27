@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a141dd719ab97140a59b718c0e842a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 30
+  velocity: 20
   gameManager: {fileID: 1199414778}
 --- !u!96 &833175856
 TrailRenderer:
